@@ -1,4 +1,4 @@
-# Persona-Based-Empathetic-Conversations (PEC)
+# Towards Persona-Based Empathetic Conversational Models (PEC)
 This is the repo for our work "[Towards Persona-Based Empathetic Conversational Models](https://arxiv.org/abs/2004.12316)" (EMNLP 2020). The code depends on PyTorch (>=v1.0) and [transformers]((https://github.com/huggingface/transformers)) (>=v2.3).
 
 
