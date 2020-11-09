@@ -4,6 +4,7 @@ This is the repo for our work "[Towards Persona-Based Empathetic Conversational 
 
 ### Data
 The PEC dataset is available [here](https://www.dropbox.com/s/9lhdf6iwv61xiao/cleaned.zip?dl=0).
+The persona dataset with 100 persona sentences each is available [here](https://www.dropbox.com/s/enrsqee0obucddf/PEC_persona_100.zip?dl=0)
 
 ### Model
 This repo includes our implementation of CoBERT.
