@@ -365,6 +365,8 @@ def train_epoch(data_iter, models, num_personas, optimizers, schedulers, gradien
     if len(models) == 3:
         context_model, response_model, persona_model = models
     
+    for optimizer in optimizers:
+        optimizer.zero_grad()
     for i, batch in enumerate(data_iter):
         batch = tuple(t.to(device) for t in batch)
         batch_x = {"input_ids": batch[0], "attention_mask": batch[1], "token_type_ids": batch[2]}
@@ -380,8 +382,6 @@ def train_epoch(data_iter, models, num_personas, optimizers, schedulers, gradien
                 "token_type_ids": batch[8]
                 }
         
-        for optimizer in optimizers:
-            optimizer.zero_grad()
         
         output_x = context_model(**batch_x)
         output_y = response_model(**batch_y)
@@ -453,6 +453,10 @@ def train_epoch(data_iter, models, num_personas, optimizers, schedulers, gradien
                 # torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
                 optimizer.step()
                 scheduler.step()
+                
+                # clear grads here
+                for optimizer in optimizers:
+                    optimizer.zero_grad()
         epoch_loss.append(loss.item())
 
         if i%print_every == 0:
